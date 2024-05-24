@@ -1,0 +1,48 @@
+:root{
+  --color: #f9f8f8;
+  --bg-image: #f9f8f8;
+  --bg-details: red;
+}
+
+body{
+  margin:0;
+}
+
+#contendor-card {
+  min-height: 100vh;
+}
+#contenedor-imagen{
+  background-color: var(--bg-image);
+  position: relative;
+}
+
+#btn-atras {
+  min-width: 2rem;
+  font-size:1.5rem;
+  position: absolute;
+  top: .9rem;
+  left: .9rem;
+}
+
+#btn-cantidad{
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+#contenedor-imagen img {
+  width: 100%;
+  height: 35vh;
+}
+
+#contenedor-details{
+  background-color: var(--bg-details);
+  border-radius: 40px 40px 0px 0px;
+  position: relative;
+  top:-2.5rem;
+}
+
+#contenedor-details h3 {
+  margin-top:0.1px;
+}
