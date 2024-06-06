@@ -1,7 +1,14 @@
 class BtnAdd extends HTMLElement {
 
+   static get observedAttributes(){ return ["cantidad"] }
+
    constructor(){super(); this.attachShadow({mode:'open'});
-      this.contador = 0;
+      this.contador = +(this.getAttribute("cantidad"));
+     this.estado = "";
+
+     if(this.contador === 0) this.estado = "Agregar";
+     else this.estado = "Agregado";
+
       this.shadowRoot.innerHTML =  `
 <style>
 button{
@@ -13,11 +20,8 @@ button{
   font-weight:bold;
 }
 </style>
-      <button id="${this.codigo}">Agregar</button>
-   `;
-   }
-
-   //static get observedAttributes(){ return [] }
+      <button id="${this.codigo}">${this.estado}(${this.contador || 0})</button>
+   `}
 
    connectedCallback(){
       this.shadowRoot.querySelector("button").

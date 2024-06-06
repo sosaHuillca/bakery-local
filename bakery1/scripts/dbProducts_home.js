@@ -6,13 +6,29 @@ fetch('../db_products.json')
    .then(response => response.json())
    .then(data => {
       // Manipular los datos JSON
-      const allProductos = data.productos.map(producto => `<card-mini
+      const allProductos = data.productos.map(producto =>{
+
+        let dbstorage = JSON.parse(localStorage.getItem("canasta_1")) || []
+        
+        let cantidad = 0;
+
+        for (let i = 0; i < dbstorage.length; i++) {
+          if (dbstorage[i].id == producto.id) {
+            cantidad = dbstorage[i].cantidad
+            break; // Romper el bucle si ya se encontró y actualizó el objeto
+          }
+        }
+        //console.log(cantidad)
+
+        return `<card-mini
       nombre='${producto.nombre}'
       precio='${producto.precio}'
       di='${producto.id}'
       imagen='${producto.imagen[0]}'
       storage='${"canasta_1"}'
-      ></card-mini>`).join("");
+      cantidad=${cantidad}
+      ></card-mini>`
+      }).join("");
 
       const main = document.querySelector(".contenedor-productos");
       main.insertAdjacentHTML('beforeend', allProductos);
@@ -28,6 +44,9 @@ fetch('../db_products.json')
 	    }
 
 	 })
+	 card.addEventListener("contadorCardMini",(e)=>{
+           console.log(e.detail)
+         });
 
 	 card.addEventListener("direccionar",(e)=>{
 	    main.style.display = "none";
@@ -38,6 +57,17 @@ fetch('../db_products.json')
 	       .then(response => response.json())
 	       .then(data => {
 		  let item = data.productos.filter(producto => producto.id == e.detail).map(p => {
+        let dbstorage = JSON.parse(localStorage.getItem("canasta_1")) || []
+        
+        let cantidad = 0;
+
+        for (let i = 0; i < dbstorage.length; i++) {
+          if (dbstorage[i].id == p.id) {
+            cantidad = dbstorage[i].cantidad
+            break; // Romper el bucle si ya se encontró y actualizó el objeto
+          }
+        }
+        //console.log(cantidad)
 		     return `<card-expand
 			nombre="${p.nombre}"
 			di=${p.id}
@@ -46,6 +76,7 @@ fetch('../db_products.json')
 			descripcion="${p.descripcion}"
 			categoria=${p.categoria}
 			storage=${"canasta_1"}
+                        cantidad=${cantidad}
 			></card-expand>`
 		  }).join("")
 		  

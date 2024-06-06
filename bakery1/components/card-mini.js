@@ -2,6 +2,10 @@ import "./btn-agregar2.js";
 
 class Card extends HTMLElement {
 
+   static get observedAttributes(){
+      return ["precio","nombre","di","storage","cantidad"];
+   }
+
    constructor(){super();this.attachShadow({mode:'open'});
 
       let precio = this.getAttribute("precio");
@@ -67,15 +71,12 @@ height: 136px;
 	 <section>
 	    <h2>${nombre}</h2>
 	    <h3>s/. ${precio}</h3>
-	    <btn-add-2></btn-add-2>
+	    <btn-add-2 cantidad=${cantidad}></btn-add-2>
 	 </section>
       </article>
 	 `;
    }
 
-   static get observedAttributes(){
-      return ["precio","nombre","di","storage"];
-   }
 
    connectedCallback(){
       let nombre = this.getAttribute("nombre");
@@ -89,6 +90,7 @@ height: 136px;
 	 total = +precio * +e.detail;
 
 	 this.setAttribute("cantidad",e.detail);
+        this.dispatchEvent(new CustomEvent("contadorCardMini", {detail: e.detail}))
 
 	 let dbstorage = JSON.parse(localStorage.getItem(storage)) || []
 	 let itemFound = false;
@@ -113,7 +115,7 @@ height: 136px;
 
 	 if (!itemFound) dbstorage.push(producto);
 
-	 localStorage.setItem(storage,  JSON.stringify(dbstorage));
+	 localStorage.setItem(storage,JSON.stringify(dbstorage));
 
       });
 

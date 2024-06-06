@@ -3,10 +3,11 @@ import "./btn-agregar2.js";
 window.customElements.define('card-expand',
    class WebComponent extends HTMLElement {
 
-      static get observedAttributes(){ return ["di","nombre","precio","imagen","descripcion","categoria","storage"] }
+      static get observedAttributes(){ return ["di","nombre","precio","imagen","descripcion","cantidad","categoria","storage"] }
 
       constructor(){super(); this.attachShadow({mode:'open'});
 	 let nombre = this.getAttribute("nombre");
+	 let cantidad = this.getAttribute("cantidad");
 	 let di = this.getAttribute("di");
 	 let precio = this.getAttribute("precio");
 	 let imagen = this.getAttribute("imagen");
@@ -118,7 +119,7 @@ p{margin-top:0;}
       <!--
       <button>Agregar <i class="fa-solid fa-cart-shopping"></i></button>
       -->
-	    <btn-add-2 class="btn-agregar"></btn-add-2>
+	    <btn-add-2 class="btn-agregar" cantidad="${cantidad}"></btn-add-2>
 	 </section>
       </article>
    `;

@@ -26,6 +26,7 @@ if(dbstorage.length == 0){
       total=${product.total}
       precio=${product.precio}>
       </item-list>` }).join("");
+
    main.innerHTML=collection;
 
    /*-- calculando el total para pagar --*/
@@ -36,38 +37,32 @@ if(dbstorage.length == 0){
    let stringTotal_whatsapp = "";
 
    function sumarTodo(){
-      let precioTotal = 0;
-      main.childNodes.forEach(item => {
-	 total.innerHTML = ''
-	 let subtotal = +(item.getAttribute("total"));
-	 precioTotal += subtotal;
-	 if(precioTotal === 0){
-	 stringTotal_whatsapp = "";
-	 } else {
-	    total.textContent = "total: .s/ "+precioTotal.toFixed(2);
-	    stringTotal_whatsapp += `%0A*${item.getAttribute("nombre")}%28${subtotal}%29`;
-	 }
-      });
-	 if(stringTotal_whatsapp == ""){
-	    window.location.href = '/';
-	    /*
-	    btnWhatsapp.style.display = "none"
-   let regresar = document.createElement("a");
-   regresar.textContent = "seguir comprando";
-	    regresar.setAttribute("href","/")
-	    main.appendChild(regresar)
-	    */
-	 }
-      if(useAndroid){
-	 /*plantilla para movil*/
-	 btnWhatsapp.setAttribute("href",`whatsapp://send?phone=+51${numeroTelefonico}&text=${stringTotal_whatsapp}%0ATotal=${precioTotal.toFixed(2)}`);
-      } else {
-	 /*plantilla para escritorio*/
-	 btnWhatsapp.setAttribute("href",`https://wa.me/+51${numeroTelefonico}?text=${stringTotal_whatsapp}%0ATotal=${precioTotal.toFixed(2)}`);
-      }
-      btnWhatsapp.style.backgroundColor = "yellow";
-      main.appendChild(total)
-      main.appendChild(btnWhatsapp)
+     let precioTotal = 0;
+
+     main.childNodes.forEach(item => {
+       total.innerHTML = ''
+       let subtotal = +(item.getAttribute("total"));
+       precioTotal += subtotal;
+
+       if(precioTotal === 0) stringTotal_whatsapp = "";
+       else {
+         total.textContent = "total: .s/ "+precioTotal.toFixed(2);
+         stringTotal_whatsapp += `%0A*${item.getAttribute("nombre")}%28${subtotal}%29`;
+       }
+     });
+
+     if(stringTotal_whatsapp == "") window.location.href = '/';
+
+     if(useAndroid){
+       /*plantilla para movil*/
+       btnWhatsapp.setAttribute("href",`whatsapp://send?phone=+51${numeroTelefonico}&text=${stringTotal_whatsapp}%0ATotal=${precioTotal.toFixed(2)}`);
+     } else {
+       /*plantilla para escritorio*/
+       btnWhatsapp.setAttribute("href",`https://wa.me/+51${numeroTelefonico}?text=${stringTotal_whatsapp}%0ATotal=${precioTotal.toFixed(2)}`);
+     }
+     btnWhatsapp.style.backgroundColor = "yellow";
+     main.appendChild(total)
+     main.appendChild(btnWhatsapp)
    }
 
    /*sumando el total antes de modificar las cantidades*/
@@ -86,7 +81,6 @@ if(dbstorage.length == 0){
 	       main.innerHTML = "<p>No hay productos</p>";
 	    }
 	    localStorage.setItem("canasta_1",  JSON.stringify(dbstorage));
-	    let subtotal = +(item.getAttribute("total"));
 	    sumarTodo()
 	 }
 
@@ -94,12 +88,11 @@ if(dbstorage.length == 0){
 
       item.addEventListener("inputIncrement",(e)=>{
 	 let iI = e.detail;
-	 let subtotal = +(item.getAttribute("total"));
 	 sumarTodo()
       })
       item.addEventListener("btnIncrement",(e)=>{
 	 let iI = e.detail;
-	 let subtotal = +(item.getAttribute("total"));
+        console.log("btnIncrement",iI)
 	 sumarTodo()
       })
    })
