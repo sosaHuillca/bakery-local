@@ -3,10 +3,8 @@ window.customElements.define('item-list',
 
       static get observedAttributes(){ return ["nombre","di","cantidad","total","precio"] }
 
-
       constructor(){super(); this.attachShadow({mode:'open'});
 	 const get = name => this.getAttribute(name);
-
 	 const nombre = get("nombre");
 	 const id = get("di");
 	 const cantidad = get("cantidad");
@@ -32,7 +30,7 @@ button{
 }
 </style>
 
-<div class="list">
+<div class="list" id="${id}">
    <span>${nombre}</span>
    <span>${precio}</span>
    <section>
@@ -59,23 +57,30 @@ button{
       removeC(){
 	 this.remove()
 	 const id = this.getAttribute("di")
-	 this.dispatchEvent(new CustomEvent("del", {detail:id }))
+	 this.dispatchEvent(new CustomEvent("del", {detail: id}))
       }
 
       insertInput(e){
-	 let cantidadInput = +(this.div("input").value)
-	 this.setAttribute("cantidad",cantidadInput)
+	 const id = this.getAttribute("di")
+	 let cantidad = +(this.div("input").value)
+	 this.setAttribute("cantidad",cantidad)
 
 	 const precio = +(this.getAttribute("precio"));
-	 let total = (cantidadInput*precio).toFixed(2);
+	 let total = (cantidad*precio).toFixed(2);
 
 	 this.setAttribute("total",total);
 	 this.div("#total").textContent = total;
-	 this.dispatchEvent(new CustomEvent("inputIncrement", {detail: total}))
+	 this.dispatchEvent(new CustomEvent("actionItemList", {detail:{
+	    id,
+	    total,
+	    cantidad
+	 }
+	 }))
 
       }
 
       add(){
+	 const id = this.getAttribute("di")
 	 let cantidad = +(this.div("input").value);
 	 cantidad++;
 	 this.setAttribute("cantidad",cantidad)
@@ -85,10 +90,16 @@ button{
 
 	 this.setAttribute("total",total);
 	 this.div("#total").textContent = total;
-	 this.dispatchEvent(new CustomEvent("btnIncrement", {detail: total}))
+	 this.dispatchEvent(new CustomEvent("actionItemList", {detail:{
+	    id,
+	    total,
+	    cantidad
+	 }
+	 }))
       }
 
       minus(){
+	 const id = this.getAttribute("di")
 	 let cantidad = +(this.div("input").value);
 	 cantidad--;
 	 this.setAttribute("cantidad",cantidad)
@@ -98,7 +109,12 @@ button{
 
 	 this.setAttribute("total",total);
 	 this.div("#total").textContent = total;
-	 this.dispatchEvent(new CustomEvent("btnIncrement", {detail: total}))
+	 this.dispatchEvent(new CustomEvent("actionItemList", {detail:{
+	    id,
+	    total,
+	    cantidad
+	 }
+	 }))
       }
       attributeChangedCallback(prop, oldVal, newVal){ 
 	 if("cantidad" == prop){

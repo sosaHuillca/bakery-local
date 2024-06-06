@@ -12,12 +12,12 @@ if (navigator.userAgent.match(/Android/i) ||
    useAndroid = true;
 }
 
-let dbstorage = JSON.parse(localStorage.getItem("canasta_1")) || []
+/* renderizar localStorage */
+let dbstorage = JSON.parse(localStorage.getItem("canasta_1")) || [];
 const main = document.querySelector(".contenedor-storage");
 
-if(dbstorage.length == 0){
-   main.innerHTML = "<p>No hay productos</p>";
-} else{
+if(dbstorage.length == 0) main.innerHTML = "<p>No hay productos</p>";
+else{
    const collection = dbstorage.map(product => {
       return `<item-list 
       nombre="${product.nombre}"
@@ -26,7 +26,7 @@ if(dbstorage.length == 0){
       total=${product.total}
       precio=${product.precio}>
       </item-list>` }).join("");
-
+/* insertando en html */
    main.innerHTML=collection;
 
    /*-- calculando el total para pagar --*/
@@ -86,16 +86,26 @@ if(dbstorage.length == 0){
 
       })
 
-      item.addEventListener("inputIncrement",(e)=>{
-	 let iI = e.detail;
-	 sumarTodo()
-      })
-      item.addEventListener("btnIncrement",(e)=>{
-	 let iI = e.detail;
-        console.log("btnIncrement",iI)
-	 sumarTodo()
-      })
-   })
+      item.addEventListener("actionItemList",(e)=>{
+	 let dbstorage = JSON.parse(localStorage.getItem("canasta_1")) || []
 
+	 let itemFound = false;
+
+	 if(dbstorage.length === 0) return;
+
+	 for (let i = 0; i < dbstorage.length; i++) {
+	    if (dbstorage[i].id === e.detail.id) {
+	       dbstorage[i].cantidad = e.detail.cantidad;
+	       dbstorage[i].total = e.detail.total;
+	       itemFound = true;
+	       break; // Romper el bucle si ya se encontró y actualizó el objeto
+	    }
+	 }
+
+	 localStorage.setItem("canasta_1",JSON.stringify(dbstorage));
+	 sumarTodo()
+      })
+
+   })
 
 }

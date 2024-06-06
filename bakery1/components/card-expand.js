@@ -97,7 +97,7 @@ p{margin-top:0;}
 </style>
       <article class="content-product">
 	 <header class="head-product">
-	    <a href="/">
+	    <a href="/" id="borrar">
 	       <i class="fa-solid fa-arrow-left"></i>
 	    </a>
 	    <img id="imgMain" src="imagenes/${listImagen[0]}"/>
@@ -113,12 +113,9 @@ p{margin-top:0;}
 	    <h3 class="title-categoria">Categoria: ${categoria}</h3>
 	    <h3 class="title-descripcion">Descripcion:</h3>
 	    <p class="content-descripcion">${descripcion}</p>
-      <p class="title-precio"><strong>Total:</strong>
+      <p class="title-precio"><strong>Precio:</strong>
 	 <span class="number-precio">s/. ${precio}</span>
       </p>
-      <!--
-      <button>Agregar <i class="fa-solid fa-cart-shopping"></i></button>
-      -->
 	    <btn-add-2 class="btn-agregar" cantidad="${cantidad}"></btn-add-2>
 	 </section>
       </article>
@@ -179,10 +176,12 @@ p{margin-top:0;}
       /* registrando el evento del enlace */
       this.shadowRoot.querySelector("a").
 	 addEventListener("click",(e)=>{
-	    e.preventDefault();
-	    this.dispatchEvent(new CustomEvent("direccionar", {detail: this.getAttribute("di")}))
+	 e.preventDefault();
+	 this.remove()
+	 this.dispatchEvent(new CustomEvent("actionQuitarCardDetails", {detail: true}))
 	 })
       }
+
 
 })
 
