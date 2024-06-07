@@ -13,7 +13,13 @@
       "id": 2,
       "nombre": "rosquita de anis",
       "precio": 1.00,
-      "imagen": ["rosquita-anis.jpg"],
+      "imagen": [
+	 "rosquitas-1.webp",
+	 "rosquitas-2.jpg",
+	 "roquitas-3.jpg",
+	 "rosquitas-4.jpg",
+	 "rosquitas-5.webp"
+      ],
       "descripcion": "Deliciosa rosquita con sabor a anís, perfecta para acompañar un café o té. Su textura es crujiente por fuera y suave por dentro, y su aroma a anís le da un toque único y reconfortante.",
       "categoria": "bocadito",
       "disponible": true
@@ -22,7 +28,13 @@
       "id": 3,
       "nombre": "pay de manzana",
       "precio": 11.99,
-      "imagen": ["pay-manzana-entero.jpg"],
+      "imagen": [
+	 "pay-1.jpg",
+	 "pay-2.webp",
+	 "pay-3.webp",
+	 "pay-4.jpg",
+	 "pay-5.webp"
+      ],
     "descripcion": "El pay de manzana es un postre clásico que consiste en una base de masa quebrada o masa de hojaldre, rellena con una mezcla de manzanas cortadas en rodajas finas y sazonadas con canela, azúcar y a veces pasas. Se hornea hasta que la masa esté dorada y crujiente, y las manzanas estén tiernas y caramelizadas. Es un postre delicioso y reconfortante, perfecto para disfrutar en cualquier ocasión.",
       "categoria": "postre",
       "disponible": true
@@ -31,7 +43,13 @@
       "id": 4,
       "nombre": "torta tres leches",
       "precio": 21.99,
-      "imagen": ["torta-3-leches.jpg"],
+      "imagen": [
+	 "tres-leches-1.jpg",
+	 "tres-leches-2.jpg",
+	 "tres-leches-3.jpg",
+	 "tres-leches-4.jpg",
+	 "tres-leches-5.webp"
+      ],
     "descripcion": "El pay de manzana es un postre clásico que consiste en una base de masa quebrada o masa de hojaldre, rellena con una mezcla de manzanas cortadas en rodajas finas y sazonadas con canela, azúcar y a veces pasas. Se hornea hasta que la masa esté dorada y crujiente, y las manzanas estén tiernas y caramelizadas. Es un postre delicioso y reconfortante, perfecto para disfrutar en cualquier ocasión.",
       "categoria": "torta",
       "disponible": true
@@ -40,7 +58,13 @@
       "id": 5,
       "nombre": "alfajor de maicena",
       "precio": 1.99,
-      "imagen": ["alfajor-maicena.jpg"],
+      "imagen": [
+	 "alfajor-1.jpg",
+	 "alfajor-2.jpg",
+	 "alfajor-3.jpg",
+	 "alfajor-4.jpg",
+	 "alfajor-5.jpg"
+      ],
     "descripcion": "Entra en el mundo de los alfajores y descubre una experiencia de sabor que nunca olvidarás. Con su irresistible combinación de texturas y sabores, estos dulces son mucho más que un simple bocado: son una verdadera obra maestra culinaria que merece ser disfrutada al máximo. ¡No esperes más y hazte con tus alfajores favoritos hoy mismo!",
       "categoria": "postre",
       "disponible": true
@@ -49,7 +73,13 @@
       "id": 6,
       "nombre": "mil hojas",
       "precio": 2.99,
-      "imagen": ["mil-hojas.avif"],
+      "imagen": [
+	 "mil-hojas-1.jpg",
+	 "mil-hojas-2.jpg",
+	 "mil-hojas-3.jpge",
+	 "mil-hojas-4.jpg",
+	 "mil-hojas-5.jpg"
+      ],
     "descripcion": "El mil hojas es una exquisita tentación de repostería que seduce con su delicada y crujiente masa hojaldrada, rellena de cremosa crema pastelera y coronada con una capa de azúcar glas. Cada bocado es un equilibrio perfecto entre texturas y sabores, creando una experiencia gustativa inolvidable. Su elegancia y sofisticación lo convierten en el postre ideal para deleitar los sentidos en cualquier ocasión especial.",
       "categoria": "postre",
       "disponible": true
@@ -58,7 +88,13 @@
       "id": 7,
       "nombre": "keke vainilla",
       "precio": 15.99,
-      "imagen": ["keke-vainilla.jpg"],
+      "imagen": [
+	 "keke-1.jpg",
+	 "keke-2.jpg",
+	 "keke-3.jpg",
+	 "keke-4.png",
+	 "keke-5.webp"
+      ],
     "descripcion": "El keke de vainilla es un placer simple y reconfortante que evoca recuerdos de hogar y momentos compartidos. Con su aroma tentador y su suave textura, este delicioso bizcocho se deshace en la boca, revelando el sutil sabor de la vainilla en cada bocado. Perfecto para acompañar una taza de té caliente o disfrutar como postre después de una comida, el keke de vainilla es un clásico atemporal que siempre deja una sonrisa en los labios.",
       "categoria": "keke",
       "disponible": true
@@ -67,7 +103,13 @@
       "id": 8,
       "nombre": "leche asada",
       "precio": 1.99,
-      "imagen": ["leche-asada.jpg"],
+      "imagen": [
+	 "leche-asada-1.jpg",
+	 "leche-asada-2.jpg",
+	 "leche-asada-3.jpg",
+	 "leche-asada-4.jpg",
+	 "leche-asada-5.jpg"
+      ],
     "descripcion": "La leche asada es un postre tradicional que deleita con su suave textura cremosa y su sabor delicadamente dulce. Preparada con una mezcla de leche, azúcar y huevos, esta delicia se cuece lentamente al horno hasta alcanzar una consistencia firme y dorada en la superficie. Cada porción es un placer reconfortante que evoca recuerdos de hogar y celebración. Ideal para aquellos que buscan un dulce reconfortante con un toque de nostalgia.",
       "categoria": "postre",
       "disponible": true

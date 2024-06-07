@@ -18,6 +18,9 @@ button{
   border-radius:10px;
   border:none;
   font-weight:bold;
+  display: inline-block;
+  min-width: 8rem;
+  min-height: 2.3rem;
 }
 </style>
       <button id="${this.codigo}">${this.estado}(${this.contador || 0})</button>

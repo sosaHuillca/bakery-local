@@ -30,10 +30,12 @@ else{
    main.innerHTML=collection;
 
    /*-- calculando el total para pagar --*/
+   const contenedorTotal = document.createElement("section")
    const total = document.createElement("p");
    let numeroTelefonico = "923909419";
    let btnWhatsapp = document.createElement("a");
    btnWhatsapp.textContent = "pedir por whatsapp";
+
    let stringTotal_whatsapp = "";
 
    function sumarTodo(){
@@ -60,9 +62,8 @@ else{
        /*plantilla para escritorio*/
        btnWhatsapp.setAttribute("href",`https://wa.me/+51${numeroTelefonico}?text=${stringTotal_whatsapp}%0ATotal=${precioTotal.toFixed(2)}`);
      }
-     btnWhatsapp.style.backgroundColor = "yellow";
-     main.appendChild(total)
-     main.appendChild(btnWhatsapp)
+      contenedorTotal.append(total,btnWhatsapp)
+     main.appendChild(contenedorTotal)
    }
 
    /*sumando el total antes de modificar las cantidades*/

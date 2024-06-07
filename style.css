@@ -15,10 +15,11 @@ img { width: 100%; }
   align-items:center;
 }
 
-header>i{
+header>a{
   color: #fff;
-  font-size: 1.8rem;
+  font-size: 1.5rem;
 }
+
 .icon.theme-no-bg{
   color: brown;
 }
@@ -37,95 +38,30 @@ body>header{
 
 }
 
-.producto{
-  background-image:url("https://cdn.pixabay.com/photo/2022/05/03/20/01/black-forest-cake-7172587_960_720.jpg");
-  background-size:100% 50%;
-  background-repeat:no-repeat;
+.contenedor-storage{
+   display:grid;
+   background-color: #fdfefe;
+   position: relative;
+}
 
-  border-radius: 10px;
-  min-height: 15rem;
-  position: relative;
-  overflow: hidden;
-  box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
-}
-.contenedor-card{
-  border-radius: 10px;
-  min-height: 15rem;
-  position: relative;
-  overflow: hidden;
-  box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
-}
-.contenedor-card section{
-     position: absolute;
-  width: 100%;
-  bottom: 0;
-  background: white;
-  border-radius: 12px 10px 0 0;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  min-height: 7rem;
-  place-content: center;
-}
-.contenedor-card h2{
-     grid-column: 1/-1;
-  margin: 10px 3px;
-  font-size: 1.2rem;
-  font-family: sans-serif;
-}
-img + i{
+.contenedor-storage section{
    position: absolute;
-  left: 50%;
-  top: 20%;
-  font-size: 2rem;
-  transform: translate(-20%,-50%);
-  text-decoration:none;
-  color: #fff;
+   width: 100%;
+   bottom:-130px;
+   text-align:center;
 }
-
-.producto>a{
-   position: absolute;
-  left: 50%;
-  top: 20%;
-  font-size: 2rem;
-  transform: translate(-20%,-50%);
-  text-decoration:none;
-  color: #fff;
-  }
-
-  .producto section {
-     position: absolute;
-  width: 100%;
-  bottom: 0;
-  background: white;
-  border-radius: 12px 10px 0 0;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  min-height: 7rem;
-  place-content: center;
-  }
-
-  .producto h2{
-     grid-column: 1/-1;
-  margin: 10px 3px;
-  font-size: 1.2rem;
-  font-family: sans-serif;
-  }
-
-  .producto h3{
-     margin: 0;
-  font-size: 1rem;
-  align-self: center;
-  justify-self: center;
-  }
-
-  .producto i:last-child{
-     background: blueviolet;
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  font-size: 1.5rem;
-  justify-self: center;
-  }
+.contenedor-storage section a{
+   text-decoration: none;
+  padding: 10px;
+  border-radius: 10px;
+  color: white;
+  background: #45c155;
+  font-weight: 500;
+  display: inline-block;
+  width: 160px;
+  height: 2rem;
+  line-height: 2;
+}
+.contenedor-storage section p{
+   font-size: 1.3rem;
+}

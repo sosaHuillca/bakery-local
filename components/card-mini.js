@@ -18,7 +18,10 @@ class Card extends HTMLElement {
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 	 <style>
 
-img { width: 100%; }
+img {
+   width: 100%;
+   height: 190px;
+   }
 
 .contenedor-card{
   border-radius: 10px;
@@ -27,11 +30,24 @@ img { width: 100%; }
   overflow: hidden;
   box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
 }
+
+  section {
+     position: absolute;
+  width: 100%;
+  bottom: 0;
+  background: white;
+  border-radius: 12px 10px 0 0;
+  display: grid;
+  justify-items:center;
+   min-height: 100px;
+   padding-left:5px;
+  }
 .contenedor-card h2{
-     grid-column: 1/-1;
-  margin: 10px 3px;
-  font-size: 1.2rem;
+   grid-column:1/-1;
+  font-size: 1.1rem;
+  margin:0;
   font-family: sans-serif;
+  font-weight: normal;
 }
 img + i{
    position: absolute;
@@ -43,23 +59,10 @@ img + i{
   color: #fff;
 }
 
-  section {
-     position: absolute;
-  width: 100%;
-  bottom: 0;
-  background: white;
-  border-radius: 12px 10px 0 0;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-height: 136px;
-  place-content: center;
-  }
 
    h3{
-     margin: 0;
-  font-size: 1rem;
-  align-self: center;
-  justify-self: center;
+  margin: 0;
+  font-size: 1.2rem;
   }
 
 	 </style>

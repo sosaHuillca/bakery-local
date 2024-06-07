@@ -17,31 +17,62 @@ div{
    display: flex;
   align-items: center;
   justify-content: space-around;
-  background-color:red;
+  box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
+  padding:10px;
 }
 input{
-   width:40px;
+   width:35px;
    height:32px;
    font-size:1.2rem;
 }
 button{
    font-size:1.5rem;
    min-width: 35px;
+   background:blue;
+   color:white;
+}
+.nombre_precio{
+   display:grid;
+   width:100px;
+}
+.nombre{
+   color: #444;
+   font-family:sans-serif;
+}
+.precio{
+   font-size:1.1rem;
+}
+
+button{
+   border-radius:50%;
+   border:none;
+}
+.cambiar_cantidad{
+   width:140px;
+   display: flex;
+   justify-content: space-between;
+}
+.cambiar_cantidad input{
+   text-align:center;
+}
+#del{
+  background:red; 
 }
 </style>
 
 <div class="list" id="${id}">
-   <span>${nombre}</span>
-   <span>${precio}</span>
-   <section>
+   <section class="nombre_precio">
+      <span class="nombre">${nombre}</span>
+      <span class="precio">${precio}</span>
+   </section>
+   <section class="cambiar_cantidad">
       <button id="minus">-</button>
       <input value="${cantidad}" type="number" />
       <button id="add">+</button>
    </section>
-   <h3>s./<span id="total">${total}</span></h3>
-   <button id="del">X</button>
+   <span id="total" class="precio">s./${total}</span>
+   <button id="del">x</button>
 </div>
-<hr>
    `;
       }
 
