@@ -1,8 +1,9 @@
 import "../components/card-mini.js"
 import "../components/card-expand.js"
 
+let url = "https://github.com/sosaHuillca/bakery-local/blob/gh-pages"
 // Cargar el archivo JSON
-fetch('../db_products.json')
+fetch(url+'/db_products.json')
    .then(response => response.json())
    .then(data => {
       // Manipular los datos JSON
@@ -56,7 +57,7 @@ fetch('../db_products.json')
 	    const mainProducto = document.querySelector('#contenedor-producto')
 
 	    /* render details products*/
-	    fetch('../db_products.json')
+	    fetch(url+'/db_products.json')
 	       .then(response => response.json())
 	       .then(data => {
 		  let item = data.productos.filter(producto => producto.id == e.detail).map(p => {
